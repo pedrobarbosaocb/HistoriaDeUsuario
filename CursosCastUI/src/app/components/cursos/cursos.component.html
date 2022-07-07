@@ -1,0 +1,74 @@
+<div style="padding-block: 10px;">
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Adicionar Curso
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Adicionar Curso</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Descrição do Curso</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-6">
+              <label for="exampleFormControlInput1" class="form-label">Data de Início</label>
+              <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="--/--/--">
+            </div>
+            <div class="col-6">
+              <label for="exampleFormControlInput1" class="form-label">Data de Término</label>
+              <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="--/--/--">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <label for="exampleFormControlInput1" class="form-label">Categoria</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Categoria">
+            </div>
+            <div class="col-4">
+              <label for="exampleFormControlInput1" class="form-label">Qtd. Alunos</label>
+              <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Ex.:">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Data de Início</th>
+        <th scope="col">Data de Término</th>
+        <th scope="col">Quantidade de Alunos</th>
+        <th scope="col">Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let curso of cursos; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ curso.description }}</td>
+        <td>{{ curso.initialDate | date }}</td>
+        <td>{{ curso.finalDate | date }}</td>
+        <td>{{ curso.studentsNumber }}</td>
+        <td>{{ curso.category }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
